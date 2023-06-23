@@ -2,7 +2,7 @@
 <p>name: <%= @user.name %></p>
 <p>hobby: <%= @user.hobby %></p>
 <p>profile: <%= @user.profile %></p>
-<% if current_user != @user %>
+<% if logged_in? && current_user != @user %>
   <% if current_user.following?(@user) %>
     <%= link_to "フォローを外す", user_followings_path(@user.id), method: :delete %>
   <% else %>
